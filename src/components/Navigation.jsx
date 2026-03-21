@@ -39,9 +39,9 @@ export default function Navigation() {
 
   const navItems = [
     { label: 'Home', to: '/' },
-    { label: 'Calculator', to: '/calculator' },
-    { label: 'Blog', to: '/blog' },
     { label: 'About Us', to: '/about' },
+    { label: 'Blog', to: '/blog' },
+    { label: 'Calculator', to: '/' },
     { label: 'Policy', to: '/policy' },
   ];
 

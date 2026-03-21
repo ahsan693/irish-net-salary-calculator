@@ -117,7 +117,7 @@ export default function Calculator() {
     {
       title: 'User Friendly Design',
       text: 'Enter your income and details in seconds. No complex forms, no unnecessary steps.',
-      icon: '💡',
+      icon: '👤',
     },
     {
       title: 'Updated for Budget 2026',
@@ -127,27 +127,25 @@ export default function Calculator() {
     {
       title: 'Clear Net Pay Estimate',
       text: 'See annual, monthly, and weekly net pay with a structured breakdown.',
-      icon: '📊',
+      icon: '💰',
     },
     {
       title: 'Private and Secure',
       text: 'No PPSN required. No account needed. Transparent data policy.',
-      icon: '🔒',
+      icon: '🛡️',
     },
   ];
-
   return (
     <div className="bg-gradient-to-b from-blue-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 min-h-screen">
       {/* Hero */}
       <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 text-center">
-        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3">Income Tax Calculator Ireland</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3"></p>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-3">
           Income Tax Calculator Ireland
         </h1>
         <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
-          <span className="text-gray-900 dark:text-white">Calculate Your </span>
           <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-pink-500 bg-clip-text text-transparent">
-            Net Salary
+            Calculate Your Net Salary
           </span>
         </p>
         <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
@@ -170,34 +168,37 @@ export default function Calculator() {
       </header>
 
       {/* Cookie banner */}
-      <section className="max-w-3xl mx-auto px-4 pb-10">
-        <div className="bg-white/90 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-700 rounded-xl shadow-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-          <p className="text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
-            We use cookies to improve your experience on our site. You can accept or reject their use.
-          </p>
-          <div className="flex items-center gap-3 text-xs sm:text-sm">
-            <button className="px-4 py-1.5 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-slate-800 transition">
-              Reject
-            </button>
-            <button className="px-4 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 transition">
-              Accept
-            </button>
-            <button className="px-4 py-1.5 rounded-full border border-transparent text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition">
-              Learn more
-            </button>
+      <section className="bg-[#f3f4fb] dark:bg-slate-950 py-8">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="bg-white/90 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-700 rounded-xl shadow-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+            <p className="text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
+              We use cookies to improve your experience on our site. You can accept or reject their use.
+            </p>
+            <div className="flex items-center gap-3 text-xs sm:text-sm">
+              <button className="px-4 py-1.5 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+                Reject
+              </button>
+              <button className="px-4 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 transition">
+                Accept
+              </button>
+              <button className="px-4 py-1.5 rounded-full border border-transparent text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition">
+                Learn more
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Calculator Grid */}
-      <main id="calculator-section" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="bg-white dark:bg-slate-950 shadow-xl rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-800">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Form */}
-            <div className="bg-gray-950 text-gray-100 p-6 sm:p-8 space-y-6">
-              <div className="space-y-3">
+      <main id="calculator-section" className="bg-[#ebebf3] dark:bg-slate-950 pb-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+          <div className="bg-gray-950 text-gray-100 shadow-xl rounded-2xl overflow-hidden border border-gray-900">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* Form */}
+              <div className="p-6 sm:p-8 space-y-6">
+                <div className="space-y-3">
                 <h2 className="text-sm font-semibold text-white/80">Income</h2>
-                {[
+                {[ 
                   {
                     label: 'Employment Income',
                     field: 'employmentIncome',
@@ -227,7 +228,7 @@ export default function Calculator() {
                     </div>
                   </div>
                 ))}
-              </div>
+                </div>
 
               <div className="space-y-3">
                 <h2 className="text-sm font-semibold text-white/80">Tax configuration</h2>
@@ -403,14 +404,14 @@ export default function Calculator() {
                   </div>
 
                   {/* Mid-line labels: tax you pay / employer pays */}
-                  <div className="absolute inset-x-0 bottom-14 px-4 text-[0.7rem] sm:text-xs text-sky-50/90 flex justify-between items-center">
-                    <div>
-                      <p className="font-semibold mb-0.5">{formatCurrency(calculations.totalTax)}</p>
-                      <p className="opacity-80">Tax you pay</p>
+                  <div className="absolute inset-x-0 bottom-40 px-4 text-xs sm:text-lg text-white font-semibold flex justify-between items-center">
+                    <div className="text-center">
+                      <p className="mb-1">{formatCurrency(calculations.totalTax)}</p>
+                      <p className="text-xs sm:text-sm opacity-90">Tax you pay</p>
                     </div>
-                    <div className="text-right">
-                      <p className="font-semibold mb-0.5">{formatCurrency(calculations.totalTax * 0.6)}</p>
-                      <p className="opacity-80">Tax the employer pays</p>
+                    <div className="text-center">
+                      <p className="mb-1">{formatCurrency(calculations.totalTax * 0.6)}</p>
+                      <p className="text-xs sm:text-sm opacity-90">Tax the employer pays</p>
                     </div>
                   </div>
 
@@ -426,62 +427,151 @@ export default function Calculator() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-4 space-y-2 text-sm text-white/80">
-                  <div className="flex justify-between">
-                    <span>Total tax paid</span>
-                    <span className="font-semibold">{formatCurrency(calculations.totalTax)}</span>
-                  </div>
-                  <p className="text-white/60 text-xs leading-relaxed">
-                    This quick estimate shows the combined effect of Income Tax, USC, and PRSI using current bands. Adjust income or pension inputs to see how your net pay changes instantly.
+
+                {/* Total tax paid section */}
+                <div className="mt-6 p-5 bg-gradient-to-b from-sky-900/40 to-sky-950/80 border border-sky-700/50 rounded-lg">
+                  <p className="text-sm text-sky-200/70 mb-2">Total tax paid</p>
+                  <p className="text-3xl font-bold text-white mb-3">{formatCurrency(calculations.totalTax)}</p>
+                  <p className="text-sm text-sky-100/80 leading-relaxed">
+                    Did you know your employer also pays tax on your salary? It costs the employer €464 to pay you ever €1 a month. In other words, every time you expect €1 in your salary, your employer's spending €1.64 goes to the government.
                   </p>
-                  <div className="flex justify-between">
-                    <span>Real tax rate</span>
-                    <span className="font-semibold">
-                      {calculations.grossIncome > 0
-                        ? `${((calculations.totalTax / calculations.grossIncome) * 100).toFixed(1)}%`
-                        : '0.0%'}
-                    </span>
-                  </div>
+                </div>
+
+                {/* Real tax rate section */}
+                <div className="mt-4 p-5 bg-gradient-to-b from-sky-900/40 to-sky-950/80 border border-sky-700/50 rounded-lg">
+                  <p className="text-sm text-sky-200/70 mb-2">Real tax rate</p>
+                  <p className="text-3xl font-bold text-white mb-3">
+                    {calculations.grossIncome > 0
+                      ? `${((calculations.totalTax / calculations.grossIncome) * 100).toFixed(1)}%`
+                      : '0.0%'}
+                  </p>
+                  <p className="text-sm text-sky-100/80 leading-relaxed">
+                    With you and your employer both paying tax, what used to be a 10% tax rate now looks to 27%. In other words, your employer is actually 81% higher than what it seemed at first.
+                  </p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
       </main>
 
       {/* Feature cards */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">A Better Way to Estimate Your Income</h2>
-          <p className="text-gray-600 dark:text-gray-300">Designed for clarity, updated rates, and straightforward tax estimates.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {featureCards.map((card) => (
-            <div
-              key={card.title}
-              className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm"
-            >
-              <div className="text-2xl mb-3">{card.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{card.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{card.text}</p>
-            </div>
-          ))}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5f7ff] via-white to-[#f9f5ff] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-16">
+        <div className="pointer-events-none absolute -left-32 top-0 w-72 h-72 bg-blue-300/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 bottom-0 w-80 h-80 bg-purple-300/25 blur-3xl" />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+              <span className="text-gray-900 dark:text-white">A Better Way to </span>
+              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Estimate Your Income
+              </span>
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Designed for clarity, updated rates, and straightforward tax estimates.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {featureCards.map((card) => (
+              <div
+                key={card.title}
+                className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-gray-200 dark:border-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:bg-white/90 dark:hover:bg-slate-800/90 transition-all duration-300"
+              >
+              <div className="text-4xl mb-4 text-yellow-400">{card.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{card.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{card.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-950 dark:to-slate-900 border-t border-b border-gray-100 dark:border-slate-800 py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Maximize Your Tax Relief.</h2>
-          <p className="text-gray-600 dark:text-gray-300">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5f7ff] via-white to-[#f9f5ff] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-t border-b border-gray-100 dark:border-slate-800 py-14">
+        <div className="pointer-events-none absolute -left-32 top-0 w-72 h-72 bg-blue-300/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 bottom-0 w-80 h-80 bg-purple-300/25 blur-3xl" />
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+            <span className="text-gray-900 dark:text-white">Maximize Your </span>
+            <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Tax Relief.
+            </span>
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Download our practical Irish tax saving guide and learn which credits and reliefs you may be entitled to under current Revenue rules.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition">
+          <button className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold text-sm shadow-md hover:shadow-lg transition">
             Claim Your Free Irish Tax Guide →
           </button>
           <p className="text-xs text-gray-500 dark:text-gray-400">Instant access. No spam.</p>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Column 1: Brand */}
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Free Irish Income Tax Calculator</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">helping individuals estimate Income Tax, USC, and PRSI using current Irish Revenue rates.</p>
+            </div>
+
+            {/* Column 2: Company */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><a href="/about" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
+                <li><a href="/contact" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+                <li><a href="/policy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Privacy Policy</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Terms of Use</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Cookie Policy</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Resources */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Resources</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Tax Credits Explained</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">USC Guide</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">PRSI Guide</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Calculator */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Calculator</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">About Income Tax Calculator</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Net Salary Calculator</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Take Home Pay Calculator</a></li>
+                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Budget 2026 Updates</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Section with Social Icons */}
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <p className="text-xs text-gray-600 dark:text-gray-400">
+              © 2026 Income Tax Calculator). All rights reserved. Built and maintained by Discipline Media. Estimates only. Not financial or tax advice.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 002.856-3.51 10 10 0 01-2.836.856 4.958 4.958 0 002.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

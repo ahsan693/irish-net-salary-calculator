@@ -11,10 +11,10 @@ export default function App() {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Calculator />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/policy" element={<CookiePolicy />} />
       </Routes>
     </BrowserRouter>
