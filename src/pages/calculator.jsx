@@ -1,4 +1,8 @@
 import React, { useMemo, useState } from 'react';
+import userIcon from '../icons/div.w-14.png';
+import budgetIcon from '../icons/div.w-14-1.png';
+import payIcon from '../icons/div.w-14-2.png';
+import secureIcon from '../icons/div.w-14-3.png';
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2 }).format(
@@ -129,22 +133,22 @@ export default function Calculator() {
     {
       title: 'User Friendly Design',
       text: 'Enter your income and details in seconds. No complex forms, no unnecessary steps.',
-      icon: '👤',
+      icon: userIcon,
     },
     {
       title: 'Updated for Budget 2026',
       text: 'Uses current Irish Income Tax, USC, and PRSI bands for a quick net pay estimate.',
-      icon: '⚡',
+      icon: budgetIcon,
     },
     {
       title: 'Clear Net Pay Estimate',
       text: 'See annual, monthly, and weekly net pay with a structured breakdown.',
-      icon: '💰',
+      icon: payIcon,
     },
     {
       title: 'Private and Secure',
       text: 'No PPSN required. No account needed. Transparent data policy.',
-      icon: '🛡️',
+      icon: secureIcon,
     },
   ];
   return (
@@ -173,9 +177,9 @@ export default function Calculator() {
           Calculate my tax →
         </button>
         <div className="flex items-center justify-center gap-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 mb-2 flex-wrap">
-          <span>✓ 2026 tax rates</span>
-          <span>✓ No PPSN required</span>
-          <span>✓ Instant results</span>
+          <span><span className="text-green-500">✓</span> 2026 tax rates</span>
+          <span><span className="text-green-500">✓</span> No PPSN required</span>
+          <span><span className="text-green-500">✓</span> Instant results</span>
         </div>
       </header>
 
@@ -497,7 +501,7 @@ export default function Calculator() {
                 key={card.title}
                 className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-gray-200 dark:border-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:bg-white/90 dark:hover:bg-slate-800/90 transition-all duration-300"
               >
-              <div className="text-4xl mb-4 text-yellow-400">{card.icon}</div>
+              <img src={card.icon} alt={card.title} className="w-14 h-14 mb-4" />
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{card.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{card.text}</p>
               </div>
