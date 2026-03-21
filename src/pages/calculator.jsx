@@ -63,6 +63,7 @@ export default function Calculator() {
     maritalStatus: 'single',
     children: 0,
     mortgageRelief: 0,
+    mortgageInterestRelief: false,
     renting: false,
     selfEmployedFlag: false,
   });
@@ -73,6 +74,19 @@ export default function Calculator() {
     }
     return true;
   });
+
+  const [expandedSections, setExpandedSections] = useState({
+    taxConfig: true,
+    personalDetails: true,
+    additionalDetails: true,
+  });
+
+  const toggleSection = (section) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
 
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -221,7 +235,7 @@ export default function Calculator() {
               {/* Form */}
               <div className="p-6 sm:p-8 space-y-6">
                 <div className="space-y-3">
-                <h2 className="text-sm font-semibold text-white/80">Income</h2>
+                <h2 className="text-sm font-semibold text-white/80 flex items-center gap-2"><span className="text-blue-500">●</span> Income</h2>
                 {[ 
                   {
                     label: 'Employment Income',
@@ -254,122 +268,229 @@ export default function Calculator() {
                 ))}
                 </div>
 
-              <div className="space-y-3">
-                <h2 className="text-sm font-semibold text-white/80">Tax configuration</h2>
-                <div>
-                  <label className="block text-xs text-white/70 mb-2">Tax year</label>
-                  <select
-                    value={form.taxYear}
-                    onChange={(e) => handleChange('taxYear', e.target.value)}
-                    className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="2026">2026</option>
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <h2 className="text-sm font-semibold text-white/80">Personal Details</h2>
-                <div>
-                  <label className="block text-xs text-white/70 mb-2">Age</label>
-                  <input
-                    type="number"
-                    min="18"
-                    value={form.age}
-                    onChange={(e) => handleChange('age', e.target.value)}
-                    className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs text-white/70 mb-2">Marital Status</label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { value: 'single', label: 'Single' },
-                      { value: 'married', label: 'Married One Earner' },
-                    ].map((option) => (
-                      <button
-                        key={option.value}
-                        onClick={() => handleChange('maritalStatus', option.value)}
-                        className={`rounded-md border px-3 py-2 text-sm transition ${
-                          form.maritalStatus === option.value
-                            ? 'border-blue-500 bg-blue-600 text-white'
-                            : 'border-gray-800 bg-gray-900 text-white/80'
-                        }`}
-                        type="button"
-                      >
-                        {option.label}
-                      </button>
-                    ))}
+              {/* Tax Configuration Section */}
+              <div className="border-t border-gray-800 pt-4">
+                <button
+                  onClick={() => toggleSection('taxConfig')}
+                  className="w-full flex items-center justify-between py-3 hover:bg-gray-800/50 rounded-lg px-2 transition"
+                >
+                  <div className="text-left">
+                    <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                      <span className="text-purple-500">●</span> Tax configuration
+                    </h2>
+                    <p className="text-xs text-white/60 mt-1">Tax rates, bands and credits change each year. Select the year you want to calculate.</p>
                   </div>
-                </div>
+                  <span className="text-white/70">{expandedSections.taxConfig ? '−' : '+'}</span>
+                </button>
+                {expandedSections.taxConfig && (
+                  <div className="pl-2 py-3 space-y-3">
+                    <div>
+                      <label className="block text-xs text-white/70 mb-2">Tax year</label>
+                      <select
+                        value={form.taxYear}
+                        onChange={(e) => handleChange('taxYear', e.target.value)}
+                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                      </select>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              <div className="space-y-3">
-                <h2 className="text-sm font-semibold text-white/80">Additional Details</h2>
-                <div>
-                  <label className="block text-xs text-white/70 mb-2">Number of Children</label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={form.children}
-                    onChange={(e) => handleChange('children', e.target.value)}
-                    className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-white/70 mb-2">Increase in mortgage interest from 2023 to 2026</label>
-                  <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value={form.mortgageRelief}
-                    onChange={(e) => handleChange('mortgageRelief', e.target.value)}
-                    className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
+              {/* Personal Details Section */}
+              <div className="border-t border-gray-800 pt-4">
+                <button
+                  onClick={() => toggleSection('personalDetails')}
+                  className="w-full flex items-center justify-between py-3 hover:bg-gray-800/50 rounded-lg px-2 transition"
+                >
+                  <div className="text-left">
+                    <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                      <span className="text-green-500">●</span> Personal Details
+                    </h2>
+                    <p className="text-xs text-white/60 mt-1">These details affect tax bands and credits.</p>
+                  </div>
+                  <span className="text-white/70">{expandedSections.personalDetails ? '−' : '+'}</span>
+                </button>
+                {expandedSections.personalDetails && (
+                  <div className="pl-2 py-3 space-y-3">
+                    <div>
+                      <label className="block text-xs text-white/70 mb-2">Age</label>
+                      <input
+                        type="number"
+                        min="18"
+                        value={form.age}
+                        onChange={(e) => handleChange('age', e.target.value)}
+                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                      <p className="text-xs text-white/50 mt-2">Lets us assign pension contribution relief limits.</p>
+                    </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  {[{ label: 'Renting?', field: 'renting' }, { label: 'Self-employed?', field: 'selfEmployedFlag' }].map(
-                    (item) => (
-                      <div key={item.field}>
-                        <label className="block text-xs text-white/70 mb-2">{item.label}</label>
-                        <div className="grid grid-cols-2 gap-2">
-                          {['Yes', 'No'].map((choice) => {
-                            const value = choice === 'Yes';
-                            const isActive = form[item.field] === value;
-                            return (
-                              <button
-                                key={choice}
-                                type="button"
-                                onClick={() => handleChange(item.field, value)}
-                                className={`rounded-md border px-3 py-2 text-sm transition ${
-                                  isActive
-                                    ? 'border-blue-500 bg-blue-600 text-white'
-                                    : 'border-gray-800 bg-gray-900 text-white/80'
-                                }`}
-                              >
-                                {choice}
-                              </button>
-                            );
-                          })}
-                        </div>
+                    <div>
+                      <label className="block text-xs text-white/70 mb-3">Marital Status</label>
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          { value: 'single', label: 'Single' },
+                          { value: 'married', label: 'Married One Earner' },
+                        ].map((option) => {
+                          const isActive = form.maritalStatus === option.value;
+                          return isActive ? (
+                            <button
+                              key={option.value}
+                              onClick={() => handleChange('maritalStatus', option.value)}
+                              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 border border-blue-500 text-white text-sm transition"
+                              type="button"
+                            >
+                              <div className="w-5 h-5 rounded-full border-2 border-blue-300 bg-blue-600 flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                              </div>
+                              {option.label}
+                            </button>
+                          ) : (
+                            <button
+                              key={option.value}
+                              onClick={() => handleChange('maritalStatus', option.value)}
+                              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-white/70 hover:text-white hover:border-gray-600 text-sm transition"
+                              type="button"
+                            >
+                              <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-900 flex items-center justify-center">
+                              </div>
+                              {option.label}
+                            </button>
+                          );
+                        })}
                       </div>
-                    )
-                  )}
-                </div>
+                      <p className="text-xs text-white/50 mt-2">Affects tax bands and transferable credits.</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Additional Details Section */}
+              <div className="border-t border-gray-800 pt-4">
+                <button
+                  onClick={() => toggleSection('additionalDetails')}
+                  className="w-full flex items-center justify-between py-3 hover:bg-gray-800/50 rounded-lg px-2 transition"
+                >
+                  <div className="text-left">
+                    <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                      <span className="text-yellow-500">●</span> Additional Details
+                    </h2>
+                    <p className="text-xs text-white/60 mt-1">These details affect tax bands and credits.</p>
+                  </div>
+                  <span className="text-white/70">{expandedSections.additionalDetails ? '−' : '+'}</span>
+                </button>
+                {expandedSections.additionalDetails && (
+                  <div className="pl-2 py-3 space-y-3">
+                    <div>
+                      <label className="block text-xs text-white/70 mb-2">Number of Children</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.children}
+                        onChange={(e) => handleChange('children', e.target.value)}
+                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-white/70 mb-2">Increase in mortgage interest from 2023 to 2026</label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={form.mortgageRelief}
+                        onChange={(e) => handleChange('mortgageRelief', e.target.value)}
+                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-white/70 mb-3">Entitled to Mortgage Interest Relief:</label>
+                      <div className="grid grid-cols-2 gap-3">
+                        {['Yes', 'No'].map((choice) => {
+                          const value = choice === 'Yes';
+                          const isActive = form.mortgageInterestRelief === value;
+                          return isActive ? (
+                            <button
+                              key={choice}
+                              type="button"
+                              onClick={() => handleChange('mortgageInterestRelief', value)}
+                              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 border border-blue-500 text-white text-sm transition"
+                            >
+                              <div className="w-5 h-5 rounded-full border-2 border-blue-300 bg-blue-600 flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                              </div>
+                              {choice}
+                            </button>
+                          ) : (
+                            <button
+                              key={choice}
+                              type="button"
+                              onClick={() => handleChange('mortgageInterestRelief', value)}
+                              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-white/70 hover:text-white hover:border-gray-600 text-sm transition"
+                            >
+                              <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-900 flex items-center justify-center">
+                              </div>
+                              {choice}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      {[{ label: 'Renting?', field: 'renting' }, { label: 'Self-employed?', field: 'selfEmployedFlag' }].map(
+                        (item) => (
+                          <div key={item.field}>
+                            <label className="block text-xs text-white/70 mb-3">{item.label}</label>
+                            <div className="grid grid-cols-2 gap-3">
+                              {['Yes', 'No'].map((choice) => {
+                                const value = choice === 'Yes';
+                                const isActive = form[item.field] === value;
+                                return isActive ? (
+                                  <button
+                                    key={choice}
+                                    type="button"
+                                    onClick={() => handleChange(item.field, value)}
+                                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 border border-blue-500 text-white text-sm transition"
+                                  >
+                                    <div className="w-5 h-5 rounded-full border-2 border-blue-300 bg-blue-600 flex items-center justify-center">
+                                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    {choice}
+                                  </button>
+                                ) : (
+                                  <button
+                                    key={choice}
+                                    type="button"
+                                    onClick={() => handleChange(item.field, value)}
+                                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-white/70 hover:text-white hover:border-gray-600 text-sm transition"
+                                  >
+                                    <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-900 flex items-center justify-center">
+                                    </div>
+                                    {choice}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Results */}
             <div className="bg-gray-900 text-white p-6 sm:p-8 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-3">
                 {summaryRows.map((row) => (
                   <div
                     key={row.label}
-                    className="border border-gray-800 rounded-lg p-4 bg-gray-950/60 flex items-center justify-between"
+                    className="flex items-center justify-between py-2 border-b border-gray-800/50"
                   >
                     <span className="text-sm text-white/70">{row.label}</span>
                     <span className="font-semibold">{formatCurrency(row.value)}</span>
@@ -377,21 +498,28 @@ export default function Calculator() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="border border-gray-800 rounded-lg p-4 bg-gray-950/60">
-                  <p className="text-xs text-white/60 mb-1">Weekly net</p>
-                  <p className="text-2xl font-semibold">{formatCurrency(calculations.weeklyNet)}</p>
+              {/* Net Income Highlighted Section */}
+              <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-blue-700/50 rounded-xl p-6">
+                <p className="text-xs text-white/60 mb-2">Net Income</p>
+                <p className="text-4xl font-bold text-white">{formatCurrency(calculations.netIncome)}</p>
+              </div>
+
+              {/* Weekly and Monthly Net */}
+              <div className="grid grid-cols-2 gap-4 pt-2">
+                <div className="bg-gray-800/50 rounded-lg p-4">
+                  <p className="text-xs text-white/60 mb-2">Weekly net</p>
+                  <p className="text-xl font-semibold text-white">{formatCurrency(calculations.weeklyNet)}</p>
                 </div>
-                <div className="border border-gray-800 rounded-lg p-4 bg-gray-950/60">
-                  <p className="text-xs text-white/60 mb-1">Monthly net</p>
-                  <p className="text-2xl font-semibold">{formatCurrency(calculations.monthlyNet)}</p>
+                <div className="bg-gray-800/50 rounded-lg p-4">
+                  <p className="text-xs text-white/60 mb-2">Monthly net</p>
+                  <p className="text-xl font-semibold text-green-500">{formatCurrency(calculations.monthlyNet)}</p>
                 </div>
               </div>
 
               <div className="border border-gray-800 rounded-xl bg-gradient-to-b from-gray-950 to-gray-900 p-6">
                 <div className="mb-4">
                   <h3 className="text-lg font-semibold mb-1">The Taxberg</h3>
-                  <p className="text-sm text-white/70">Tax breakdown based on your inputs.</p>
+                  <p className="text-sm text-green-500">Tax breakdown based on your inputs.</p>
                 </div>
 
                 {/* Iceberg-style summary card */}
