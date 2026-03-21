@@ -63,8 +63,20 @@ export default function Calculator() {
     selfEmployedFlag: false,
   });
 
+  const [showCookieBanner, setShowCookieBanner] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !window.localStorage.getItem('cookieConsent');
+    }
+    return true;
+  });
+
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleCookieConsent = (accepted) => {
+    window.localStorage.setItem('cookieConsent', accepted ? 'accepted' : 'rejected');
+    setShowCookieBanner(false);
   };
 
   const calculations = useMemo(() => {
@@ -168,6 +180,7 @@ export default function Calculator() {
       </header>
 
       {/* Cookie banner */}
+      {showCookieBanner && (
       <section className="bg-[#f3f4fb] dark:bg-slate-950 py-8">
         <div className="max-w-3xl mx-auto px-4">
           <div className="bg-white/90 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-700 rounded-xl shadow-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
@@ -175,19 +188,26 @@ export default function Calculator() {
               We use cookies to improve your experience on our site. You can accept or reject their use.
             </p>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
-              <button className="px-4 py-1.5 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+              <button 
+                onClick={() => handleCookieConsent(false)}
+                className="px-4 py-1.5 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-slate-800 transition">
                 Reject
               </button>
-              <button className="px-4 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 transition">
+              <button 
+                onClick={() => handleCookieConsent(true)}
+                className="px-4 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 transition">
                 Accept
               </button>
-              <button className="px-4 py-1.5 rounded-full border border-transparent text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition">
+              <button 
+                onClick={() => window.location.href = '/policy'}
+                className="px-4 py-1.5 rounded-full border border-transparent text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition">
                 Learn more
               </button>
             </div>
           </div>
         </div>
       </section>
+      )}
 
       {/* Calculator Grid */}
       <main id="calculator-section" className="bg-[#ebebf3] dark:bg-slate-950 pb-16">
