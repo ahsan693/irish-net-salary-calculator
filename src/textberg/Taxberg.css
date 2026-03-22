@@ -1,8 +1,8 @@
 .taxberg-scene {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  height: 680px;
+  max-width: 520px;
+  height: 820px;
   overflow: hidden;
   background: linear-gradient(180deg, #b8e4f0 0%, #7ecfe8 28%, #1a5f8a 28.5%, #0d3d6b 55%, #071f3d 100%);
   border-radius: 16px;
