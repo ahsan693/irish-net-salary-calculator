@@ -115,14 +115,24 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
         <span className="taxberg-desc">Net pay</span>
       </div>
 
-      {/* ── LAYER 5: Bottom summary bar ── */}
-      <div className="taxberg-footer">
-        <p className="taxberg-footer__label">Total tax paid</p>
-        <p className="taxberg-footer__total">€ {Math.round(totalTax)}</p>
-        <p className="taxberg-footer__note">
-          Your employer also pays €{Math.round(employerTax)} in tax on your salary.
-          Your gross cost to them is €{Math.round(grossSalary)}.
-        </p>
+      {/* ── LAYER 5: Bottom stats section with total tax and rate ── */}
+      <div className="taxberg-stats">
+        <div className="taxberg-stats-grid">
+          <div className="taxberg-stat-box">
+            <div className="taxberg-stat-label">Total tax paid</div>
+            <div className="taxberg-stat-value">€ {Math.round(totalTax)}</div>
+            <div className="taxberg-stat-desc">Your employer also pays €{Math.round(employerTax)} in tax on your salary.</div>
+          </div>
+          <div className="taxberg-stat-box">
+            <div className="taxberg-stat-label">Real tax rate</div>
+            <div className="taxberg-stat-value">
+              {grossSalary > 0
+                ? `${((totalTax / grossSalary) * 100).toFixed(1)}%`
+                : '0.0%'}
+            </div>
+            <div className="taxberg-stat-desc">With you and your employer both paying tax, the real rate is much higher.</div>
+          </div>
+        </div>
       </div>
     </div>
   );

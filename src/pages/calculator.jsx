@@ -534,28 +534,6 @@ export default function Calculator() {
                     grossSalary={calculations.grossIncome}
                   />
                 </div>
-
-                {/* Total tax paid section */}
-                <div className="mt-6 p-5 bg-gradient-to-b from-sky-900/40 to-sky-950/80 border border-sky-700/50 rounded-lg">
-                  <p className="text-sm text-sky-200/70 mb-2">Total tax paid</p>
-                  <p className="text-3xl font-bold text-white mb-3">{formatCurrency(calculations.totalTax)}</p>
-                  <p className="text-sm text-sky-100/80 leading-relaxed">
-                    Did you know your employer also pays tax on your salary? It costs the employer €464 to pay you ever €1 a month. In other words, every time you expect €1 in your salary, your employer's spending €1.64 goes to the government.
-                  </p>
-                </div>
-
-                {/* Real tax rate section */}
-                <div className="mt-4 p-5 bg-gradient-to-b from-sky-900/40 to-sky-950/80 border border-sky-700/50 rounded-lg">
-                  <p className="text-sm text-sky-200/70 mb-2">Real tax rate</p>
-                  <p className="text-3xl font-bold text-white mb-3">
-                    {calculations.grossIncome > 0
-                      ? `${((calculations.totalTax / calculations.grossIncome) * 100).toFixed(1)}%`
-                      : '0.0%'}
-                  </p>
-                  <p className="text-sm text-sky-100/80 leading-relaxed">
-                    With you and your employer both paying tax, what used to be a 10% tax rate now looks to 27%. In other words, your employer is actually 81% higher than what it seemed at first.
-                  </p>
-                </div>
               </div>
             </div>
             </div>

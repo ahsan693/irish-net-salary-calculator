@@ -24,9 +24,9 @@ export function useTaxbergAnim(canvasRef) {
 
       // Draw 3 wave layers — different speed, amplitude, opacity
       const layers = [
-        { amp: 5, freq: 0.018, speed: 0.7, alpha: 0.13 },
-        { amp: 3, freq: 0.026, speed: 1.1, alpha: 0.09 },
-        { amp: 1.5, freq: 0.038, speed: 1.6, alpha: 0.06 },
+        { amp: 7, freq: 0.018, speed: 0.7, alpha: 0.18 },
+        { amp: 5, freq: 0.026, speed: 1.1, alpha: 0.14 },
+        { amp: 3, freq: 0.038, speed: 1.6, alpha: 0.1 },
       ];
 
       layers.forEach(({ amp, freq, speed, alpha }) => {
@@ -42,21 +42,39 @@ export function useTaxbergAnim(canvasRef) {
         ctx.lineTo(W, H);
         ctx.lineTo(0, H);
         ctx.closePath();
-        ctx.fillStyle = `rgba(10,45,100,${alpha})`;
+        ctx.fillStyle = `rgba(30,80,140,${alpha})`;
         ctx.fill();
       });
 
-      // Surface sparkle lines
-      for (let i = 0; i < 5; i++) {
-        const sx = (W * (i + 0.5)) / 5 + Math.sin(tRef.current * 1.1 + i) * 10;
+      // Surface sparkle lines - brighter
+      for (let i = 0; i < 8; i++) {
+        const sx = (W * (i + 0.5)) / 8 + Math.sin(tRef.current * 1.1 + i) * 10;
         const sy = WATER_Y + Math.sin(sx * 0.025 + tRef.current * 0.9) * 3;
-        const a = 0.25 + 0.2 * Math.sin(tRef.current * 2 + i * 1.5);
+        const a = 0.35 + 0.3 * Math.sin(tRef.current * 2 + i * 1.5);
         ctx.beginPath();
-        ctx.moveTo(sx - 10, sy);
-        ctx.lineTo(sx + 10, sy);
-        ctx.strokeStyle = `rgba(180,230,245,${a})`;
-        ctx.lineWidth = 1.5;
+        ctx.moveTo(sx - 12, sy);
+        ctx.lineTo(sx + 12, sy);
+        ctx.strokeStyle = `rgba(200,240,255,${a})`;
+        ctx.lineWidth = 2.5;
         ctx.stroke();
+      }
+
+      // Additional water highlights
+      ctx.fillStyle = 'rgba(100,180,220,0.05)';
+      for (let i = 0; i < 4; i++) {
+        const hx = Math.sin(tRef.current * (0.3 + i * 0.1)) * W * 0.3 + W * 0.5;
+        const hy = WATER_Y + 20 + i * 40;
+        const amplitude = 15 + i * 5;
+        ctx.beginPath();
+        for (let x = 0; x < W; x += 5) {
+          const y = hy + Math.sin(x * 0.015 + tRef.current * (0.5 + i * 0.1)) * amplitude;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.lineTo(W, H);
+        ctx.lineTo(0, H);
+        ctx.closePath();
+        ctx.fill();
       }
     }
 
