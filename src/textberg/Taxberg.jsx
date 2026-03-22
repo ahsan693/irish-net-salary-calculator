@@ -100,10 +100,10 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
         <text x={90} y={314} fontSize={18} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="900">€{Math.round(taxYouPay)}</text>
 
         {/* "Employer tax" line — deeper underwater section */}
-        <circle cx={420} cy={380} r={4} fill="#f0c040" />
-        <line x1={360} y1={380} x2={416} y2={380} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
-        <text x={430} y={375} fontSize={18} fill="#ffffff" fontFamily="sans-serif" fontWeight="900">€{Math.round(employerTax)}</text>
-        <text x={430} y={393} fontSize={13}  fill="#ffffff" fontFamily="sans-serif" fontWeight="bold">Tax employer pays</text>
+        <circle cx={410} cy={380} r={4} fill="#f0c040" />
+        <line x1={330} y1={380} x2={406} y2={380} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
+        <text x={425} y={375} fontSize={18} fill="#ffffff" fontFamily="sans-serif" fontWeight="900">€{Math.round(employerTax)}</text>
+        <text x={320} y={393} fontSize={13}  fill="#ffffff" fontFamily="sans-serif" fontWeight="bold">Tax employer pays</text>
       </svg>
 
       {/* ── LAYER 3: Animated water canvas ── */}
