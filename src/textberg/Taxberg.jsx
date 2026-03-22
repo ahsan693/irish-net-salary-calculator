@@ -96,14 +96,14 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
         {/* "Tax you pay" line — upper underwater section */}
         <circle cx={100} cy={280} r={4} fill="#f0c040" />
         <line x1={104} y1={280} x2={160} y2={280} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
-        <text x={90} y={297} fontSize={13} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="bold">Tax you pay</text>
-        <text x={90} y={313} fontSize={16} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="900">€{Math.round(taxYouPay)}</text>
+        <text x={90} y={297} fontSize={14} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="bold">Tax you pay</text>
+        <text x={90} y={314} fontSize={18} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="900">€{Math.round(taxYouPay)}</text>
 
         {/* "Employer tax" line — deeper underwater section */}
         <circle cx={410} cy={380} r={4} fill="#f0c040" />
         <line x1={330} y1={380} x2={406} y2={380} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
-        <text x={430} y={372} fontSize={16} fill="#ffffff" fontFamily="sans-serif" fontWeight="900">€{Math.round(employerTax)}</text>
-        <text x={310} y={390} fontSize={12} fill="#ffffff" fontFamily="sans-serif" fontWeight="bold">Tax employer pays</text>
+        <text x={425} y={375} fontSize={18} fill="#ffffff" fontFamily="sans-serif" fontWeight="900">€{Math.round(employerTax)}</text>
+        <text x={320} y={393} fontSize={13}  fill="#ffffff" fontFamily="sans-serif" fontWeight="bold">Tax employer pays</text>
       </svg>
 
       {/* ── LAYER 3: Animated water canvas ── */}

@@ -2,8 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 520px;
-  height: auto;
-  min-height: 500px;
+  height: 700px;
   overflow: hidden;
   background: linear-gradient(180deg, #b8e4f0 0%, #7ecfe8 28%, #1a5f8a 28.5%, #0d3d6b 55%, #071f3d 100%);
   border-radius: 16px;
@@ -19,7 +18,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .taxberg-img {
@@ -45,15 +44,11 @@
 .taxberg-svg {
   z-index: 8;
   pointer-events: none;
-  width: 100%;
-  height: auto;
 }
 
 .taxberg-canvas {
   z-index: 5;
   pointer-events: none;
-  width: 100%;
-  height: auto;
 }
 
 /* Enhanced water wave visibility */
@@ -70,52 +65,45 @@
 
 .taxberg-label--net {
   top: 28px;
-  left: 16px;
+  left: 20px;
 }
 
 .taxberg-amount {
   display: block;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   color: #1a3a4a;
 }
 
 .taxberg-desc {
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   color: #4a7a8a;
   margin-top: 2px;
 }
 
 /* Bottom stats section - integrated inside */
 .taxberg-stats {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 7;
   background: transparent;
   backdrop-filter: none;
-  padding: 16px 12px;
+  padding: 20px 24px;
   border-top: none;
-  min-height: auto;
+  min-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: auto;
-  width: 100%;
 }
 
 .taxberg-stats-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   width: 100%;
-}
-
-@media (min-width: 640px) {
-  .taxberg-stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
 }
 
 .taxberg-stat-box {
@@ -125,42 +113,28 @@
 }
 
 .taxberg-stat-label {
-  font-size: 11px;
+  font-size: 13px;
   color: #ffffff;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   text-transform: capitalize;
   letter-spacing: 0.3px;
   font-weight: 600;
 }
 
 .taxberg-stat-value {
-  font-size: 28px;
+  font-size: 42px;
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 640px) {
-  .taxberg-stat-value {
-    font-size: 42px;
-    margin-bottom: 12px;
-  }
-}
-
 .taxberg-stat-desc {
-  font-size: 9px;
+  font-size: 11px;
   color: #ffffff;
-  line-height: 1.4;
+  line-height: 1.5;
   font-weight: 500;
   opacity: 0.95;
-}
-
-@media (min-width: 640px) {
-  .taxberg-stat-desc {
-    font-size: 11px;
-    line-height: 1.5;
-  }
 }
 
