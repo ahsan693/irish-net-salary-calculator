@@ -18,7 +18,7 @@ export function useTaxbergAnim(canvasRef) {
 
     function drawWaves() {
       const { width: W, height: H } = canvas;
-      const WATER_Y = H * 0.36; // tune this to match where your PNG waterline is
+      const WATER_Y = H * 0.33; // Adjusted for smaller iceberg - water line at upper third
 
       ctx.clearRect(0, 0, W, H);
 

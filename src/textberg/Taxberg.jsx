@@ -92,18 +92,24 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
           <JumpingFishSVG x={-15} y={650} jumpPhase={jumpingFish} size={1.3} color="#3bb3e8" />
         )}
 
-        {/* Dashed label lines — positions are % of 420×620 viewbox */}
-        {/* "Tax you pay" line — sits at ~50% depth below waterline */}
-        <circle cx={120} cy={380} r={5} fill="#f0c040" />
-        <line x1={125} y1={380} x2={200} y2={380} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
-        <text x={110} y={400} fontSize={12} fill="#7ecfe8" textAnchor="end" fontFamily="sans-serif">Tax you pay</text>
-        <text x={110} y={415} fontSize={12} fill="#7ecfe8" textAnchor="end" fontFamily="sans-serif" fontWeight="600">€{Math.round(taxYouPay)}</text>
+        {/* Dashed label lines — positioned at correct water depths on smaller iceberg */}
+        {/* "Net pay" label at top - visible ice tip */}
+        <circle cx={85} cy={110} r={4} fill="#f0c040" />
+        <line x1={89} y1={110} x2={150} y2={110} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
+        <text x={75} y={128} fontSize={14} fill="#000000" textAnchor="end" fontFamily="sans-serif" fontWeight="bold">Net pay</text>
+        <text x={75} y={145} fontSize={16} fill="#000000" textAnchor="end" fontFamily="sans-serif" fontWeight="900">€{Math.round(netPay)}</text>
 
-        {/* "Employer tax" line */}
-        <circle cx={400} cy={450} r={5} fill="#f0c040" />
-        <line x1={320} y1={450} x2={395} y2={450} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
-        <text x={410} y={445} fontSize={12} fill="#7ecfe8" fontFamily="sans-serif" fontWeight="600">€{Math.round(employerTax)}</text>
-        <text x={410} y={460} fontSize={11}  fill="#5aaccc" fontFamily="sans-serif">Tax employer pays</text>
+        {/* "Tax you pay" line — upper underwater section */}
+        <circle cx={100} cy={280} r={4} fill="#f0c040" />
+        <line x1={104} y1={280} x2={160} y2={280} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
+        <text x={90} y={297} fontSize={14} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="bold">Tax you pay</text>
+        <text x={90} y={314} fontSize={18} fill="#ffffff" textAnchor="end" fontFamily="sans-serif" fontWeight="900">€{Math.round(taxYouPay)}</text>
+
+        {/* "Employer tax" line — deeper underwater section */}
+        <circle cx={420} cy={380} r={4} fill="#f0c040" />
+        <line x1={360} y1={380} x2={416} y2={380} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
+        <text x={430} y={375} fontSize={18} fill="#ffffff" fontFamily="sans-serif" fontWeight="900">€{Math.round(employerTax)}</text>
+        <text x={430} y={393} fontSize={13}  fill="#ffffff" fontFamily="sans-serif" fontWeight="bold">Tax employer pays</text>
       </svg>
 
       {/* ── LAYER 3: Animated water canvas ── */}
@@ -120,8 +126,8 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
         <div className="taxberg-stats-grid">
           <div className="taxberg-stat-box">
             <div className="taxberg-stat-label">Total tax paid</div>
-            <div className="taxberg-stat-value">€ {Math.round(totalTax)}</div>
-            <div className="taxberg-stat-desc">Your employer also pays €{Math.round(employerTax)} in tax on your salary.</div>
+            <div className="taxberg-stat-value">€{Math.round(totalTax).toLocaleString()}</div>
+            <div className="taxberg-stat-desc">Did you know your employer also pays €{Math.round(employerTax).toLocaleString()} in tax on your salary. It costs the employer €{Math.round(grossSalary * 0.111).toLocaleString()} to pay you €{Math.round(grossSalary / 12).toLocaleString()} a month.</div>
           </div>
           <div className="taxberg-stat-box">
             <div className="taxberg-stat-label">Real tax rate</div>
@@ -130,7 +136,7 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
                 ? `${((totalTax / grossSalary) * 100).toFixed(1)}%`
                 : '0.0%'}
             </div>
-            <div className="taxberg-stat-desc">With you and your employer both paying tax, the real rate is much higher.</div>
+            <div className="taxberg-stat-desc">So, with you and the employer both paying tax, what used to be a 24.7% tax rate now rises to {grossSalary > 0 ? `${((totalTax / grossSalary) * 100).toFixed(1)}%` : '0.0%'}, meaning your real tax ratio is actually higher than what it seemed at first.</div>
           </div>
         </div>
       </div>
