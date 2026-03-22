@@ -167,9 +167,9 @@ export default function Calculator() {
     },
   ];
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-[#181c24] dark:via-[#1a1e27] dark:to-[#10121a]">
       {/* Hero */}
-      <header className="bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-10 sm:pb-16 text-center w-full">
+      <header className="bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-[#181c24] dark:via-[#1a1e27] dark:to-[#10121a] max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-10 sm:pb-16 text-center w-full">
         <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3 sm:mb-6"></p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3">
           <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
