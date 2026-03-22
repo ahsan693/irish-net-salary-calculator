@@ -167,19 +167,19 @@ export default function Calculator() {
     },
   ];
   return (
-    <div className="bg-gradient-to-b from-blue-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero */}
-      <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 text-center">
-        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3"></p>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-3">
-          Income Tax Calculator Ireland
-        </h1>
-        <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
-          <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-pink-500 bg-clip-text text-transparent">
-            Calculate Your Net Salary
+      <header className="bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-10 sm:pb-16 text-center w-full">
+        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3 sm:mb-6"></p>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            Income Tax Calculator Ireland
           </span>
-        </p>
-        <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+        </h1>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          Calculate Your Net Salary
+        </h2>
+        <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-10">
           Enter your salary and instantly calculate Income Tax, USC, PRSI, and your take home pay using current Irish tax rates.
         </p>
         <button
@@ -200,26 +200,26 @@ export default function Calculator() {
 
       {/* Cookie banner */}
       {showCookieBanner && (
-      <section className="bg-[#f3f4fb] dark:bg-slate-950 py-8">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="bg-white/90 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-700 rounded-xl shadow-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <section className="bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:bg-slate-950 py-4 sm:py-8">
+        <div className="max-w-3xl mx-auto px-3 sm:px-4">
+          <div className="bg-white/90 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-700 rounded-xl shadow-sm px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-sm">
             <p className="text-gray-700 dark:text-gray-200 text-xs sm:text-sm">
               We use cookies to improve your experience on our site. You can accept or reject their use.
             </p>
-            <div className="flex items-center gap-3 text-xs sm:text-sm">
+            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm flex-wrap justify-center">
               <button 
                 onClick={() => handleCookieConsent(false)}
-                className="px-4 py-1.5 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+                className="px-3 sm:px-4 py-1.5 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-slate-800 transition text-xs sm:text-sm">
                 Reject
               </button>
               <button 
                 onClick={() => handleCookieConsent(true)}
-                className="px-4 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 transition">
+                className="px-3 sm:px-4 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 transition text-xs sm:text-sm">
                 Accept
               </button>
               <button 
                 onClick={() => window.location.href = '/policy'}
-                className="px-4 py-1.5 rounded-full border border-transparent text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition">
+                className="px-3 sm:px-4 py-1.5 rounded-full border border-transparent text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition text-xs sm:text-sm">
                 Learn more
               </button>
             </div>
@@ -229,14 +229,14 @@ export default function Calculator() {
       )}
 
       {/* Calculator Grid */}
-      <main id="calculator-section" className="bg-[#ebebf3] dark:bg-slate-950 pb-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-          <div className="bg-gray-950 text-gray-100 shadow-xl rounded-2xl overflow-hidden border border-gray-900">
+      <main id="calculator-section" className="bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pb-8 sm:pb-16">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 pt-6 sm:pt-10">
+          <div className="bg-gray-900 text-gray-200 shadow-xl rounded-2xl overflow-hidden border border-gray-800">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Form */}
-              <div className="p-6 sm:p-8 space-y-6">
+              <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
                 <div className="space-y-3">
-                <h2 className="text-sm font-semibold text-white/80 flex items-center gap-2"><span className="text-blue-500">●</span> Income</h2>
+                <h2 className="text-xs sm:text-sm font-semibold text-gray-200 flex items-center gap-2"><span className="text-blue-500">●</span> Income</h2>
                 {[ 
                   {
                     label: 'Employment Income',
@@ -252,7 +252,7 @@ export default function Calculator() {
                   { label: 'Personal Pension Contributions', field: 'pension', placeholder: '0.00' },
                 ].map((item) => (
                   <div key={item.field}>
-                    <label className="block text-xs text-white/70 mb-2">{item.label}</label>
+                    <label className="block text-xs text-white/70 mb-1.5">{item.label}</label>
                     <div className="relative">
                       <input
                         type="number"
@@ -260,7 +260,7 @@ export default function Calculator() {
                         step="0.01"
                         value={form[item.field]}
                         onChange={(e) => handleChange(item.field, e.target.value)}
-                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder={item.placeholder}
                       />
                       <span className="absolute right-3 top-2.5 text-gray-500">€</span>
@@ -270,10 +270,10 @@ export default function Calculator() {
                 </div>
 
               {/* Tax Configuration Section */}
-              <div className="border-t border-gray-800 pt-4">
+              <div className="border-t border-gray-700 pt-3 sm:pt-4">
                 <button
                   onClick={() => toggleSection('taxConfig')}
-                  className="w-full flex items-center justify-between py-3 hover:bg-gray-800/50 rounded-lg px-2 transition"
+                  className="w-full flex items-center justify-between py-3 hover:bg-gray-700/50 rounded-lg px-2 transition"
                 >
                   <div className="text-left">
                     <h2 className="text-sm font-semibold text-white flex items-center gap-2">
@@ -286,11 +286,11 @@ export default function Calculator() {
                 {expandedSections.taxConfig && (
                   <div className="pl-2 py-3 space-y-3">
                     <div>
-                      <label className="block text-xs text-white/70 mb-2">Tax year</label>
+                      <label className="block text-xs text-white/70 mb-1.5">Tax year</label>
                       <select
                         value={form.taxYear}
                         onChange={(e) => handleChange('taxYear', e.target.value)}
-                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
                         <option value="2026">2026</option>
                         <option value="2025">2025</option>
@@ -302,10 +302,10 @@ export default function Calculator() {
               </div>
 
               {/* Personal Details Section */}
-              <div className="border-t border-gray-800 pt-4">
+              <div className="border-t border-gray-700 pt-4">
                 <button
                   onClick={() => toggleSection('personalDetails')}
-                  className="w-full flex items-center justify-between py-3 hover:bg-gray-800/50 rounded-lg px-2 transition"
+                  className="w-full flex items-center justify-between py-3 hover:bg-gray-700/50 rounded-lg px-2 transition"
                 >
                   <div className="text-left">
                     <h2 className="text-sm font-semibold text-white flex items-center gap-2">
@@ -318,15 +318,15 @@ export default function Calculator() {
                 {expandedSections.personalDetails && (
                   <div className="pl-2 py-3 space-y-3">
                     <div>
-                      <label className="block text-xs text-white/70 mb-2">Age</label>
+                      <label className="block text-xs text-white/70 mb-1.5">Age</label>
                       <input
                         type="number"
                         min="18"
                         value={form.age}
                         onChange={(e) => handleChange('age', e.target.value)}
-                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
-                      <p className="text-xs text-white/50 mt-2">Lets us assign pension contribution relief limits.</p>
+                      <p className="text-xs text-white/50 mt-1.5">Lets us assign pension contribution relief limits.</p>
                     </div>
 
                     <div>
@@ -353,10 +353,10 @@ export default function Calculator() {
                             <button
                               key={option.value}
                               onClick={() => handleChange('maritalStatus', option.value)}
-                              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-white/70 hover:text-white hover:border-gray-600 text-sm transition"
+                              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-white/70 hover:text-white hover:border-gray-500 text-sm transition"
                               type="button"
                             >
-                              <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-900 flex items-center justify-center">
+                              <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-800 flex items-center justify-center">
                               </div>
                               {option.label}
                             </button>
@@ -370,10 +370,10 @@ export default function Calculator() {
               </div>
 
               {/* Additional Details Section */}
-              <div className="border-t border-gray-800 pt-4">
+              <div className="border-t border-gray-700 pt-4">
                 <button
                   onClick={() => toggleSection('additionalDetails')}
-                  className="w-full flex items-center justify-between py-3 hover:bg-gray-800/50 rounded-lg px-2 transition"
+                  className="w-full flex items-center justify-between py-3 hover:bg-gray-700/50 rounded-lg px-2 transition"
                 >
                   <div className="text-left">
                     <h2 className="text-sm font-semibold text-white flex items-center gap-2">
@@ -392,7 +392,7 @@ export default function Calculator() {
                         min="0"
                         value={form.children}
                         onChange={(e) => handleChange('children', e.target.value)}
-                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -403,7 +403,7 @@ export default function Calculator() {
                         step="0.01"
                         value={form.mortgageRelief}
                         onChange={(e) => handleChange('mortgageRelief', e.target.value)}
-                        className="w-full bg-gray-900 border border-gray-800 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
 
@@ -430,9 +430,9 @@ export default function Calculator() {
                               key={choice}
                               type="button"
                               onClick={() => handleChange('mortgageInterestRelief', value)}
-                              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-white/70 hover:text-white hover:border-gray-600 text-sm transition"
+                              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-white/70 hover:text-white hover:border-gray-500 text-sm transition"
                             >
-                              <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-900 flex items-center justify-center">
+                              <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-800 flex items-center justify-center">
                               </div>
                               {choice}
                             </button>
@@ -467,9 +467,9 @@ export default function Calculator() {
                                     key={choice}
                                     type="button"
                                     onClick={() => handleChange(item.field, value)}
-                                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-white/70 hover:text-white hover:border-gray-600 text-sm transition"
-                                  >
-                                    <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-900 flex items-center justify-center">
+                                      className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-white/70 hover:text-white hover:border-gray-500 text-sm transition"
+                                    >
+                                      <div className="w-5 h-5 rounded-full border-2 border-gray-600 bg-gray-800 flex items-center justify-center">
                                     </div>
                                     {choice}
                                   </button>
@@ -486,46 +486,50 @@ export default function Calculator() {
             </div>
 
             {/* Results */}
-            <div className="bg-gray-900 text-white p-6 sm:p-8 space-y-6">
+            <div className="bg-gray-800 text-white p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
               <div className="space-y-3">
                 {summaryRows.map((row) => (
                   <div
                     key={row.label}
-                    className="flex items-center justify-between py-2 border-b border-gray-800/50"
+                    className="flex items-center justify-between py-2 text-sm"
                   >
-                    <span className="text-sm text-white/70">{row.label}</span>
+                    <span className="text-gray-300">{row.label}</span>
                     <span className="font-semibold">{formatCurrency(row.value)}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Net Income Highlighted Section */}
-              <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-blue-700/50 rounded-xl p-6">
-                <p className="text-xs text-white/60 mb-2">Net Income</p>
-                <p className="text-4xl font-bold text-white">{formatCurrency(calculations.netIncome)}</p>
+              {/* Net Income Simple Section */}
+              <div className="border-t border-gray-700 pt-6">
+                <div className="flex items-center justify-between py-3">
+                  <p className="text-sm text-gray-300">Net Income</p>
+                  <p className="text-2xl font-bold text-white">{formatCurrency(calculations.netIncome)}</p>
+                </div>
               </div>
 
-              {/* Weekly and Monthly Net */}
+              {/* Weekly and Monthly Net - Minimal */}
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="bg-gray-800/50 rounded-lg p-4">
-                  <p className="text-xs text-white/60 mb-2">Weekly net</p>
-                  <p className="text-xl font-semibold text-white">{formatCurrency(calculations.weeklyNet)}</p>
+                <div>
+                  <p className="text-xs text-gray-400 mb-2">Weekly net</p>
+                  <p className="text-sm font-semibold text-white">{formatCurrency(calculations.weeklyNet)}</p>
                 </div>
-                <div className="bg-gray-800/50 rounded-lg p-4">
-                  <p className="text-xs text-white/60 mb-2">Monthly net</p>
-                  <p className="text-xl font-semibold text-green-500">{formatCurrency(calculations.monthlyNet)}</p>
+                <div>
+                  <p className="text-xs text-gray-400 mb-2">Monthly net</p>
+                  <p className="text-sm font-semibold text-green-500">{formatCurrency(calculations.monthlyNet)}</p>
                 </div>
               </div>
 
-              <div className="border border-gray-800 rounded-xl bg-gradient-to-b from-gray-950 to-gray-900 p-6">
-                <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-xs text-green-500/70 pt-2">Tax breakdown based on your inputs.</p>
+
+              <div className="border border-gray-700 rounded-xl bg-gradient-to-b from-gray-900 to-gray-800 p-4 sm:p-6">
+                <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <h3 className="text-lg font-semibold mb-1">The Taxberg</h3>
-                    <p className="text-sm text-green-500">Interactive tax breakdown based on your inputs.</p>
+                    <h3 className="text-base sm:text-lg font-semibold mb-1">The Taxberg</h3>
+                    <p className="text-xs sm:text-sm text-green-500">Interactive tax breakdown based on your inputs.</p>
                   </div>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <Taxberg
                     netPay={calculations.netIncome}
                     taxYouPay={calculations.incomeTax + calculations.usc + calculations.prsi}
@@ -542,21 +546,18 @@ export default function Calculator() {
       </main>
 
       {/* Feature cards */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5f7ff] via-white to-[#f9f5ff] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-16">
-        <div className="pointer-events-none absolute -left-32 top-0 w-72 h-72 bg-blue-300/25 blur-3xl" />
-        <div className="pointer-events-none absolute -right-40 bottom-0 w-80 h-80 bg-purple-300/25 blur-3xl" />
-
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-10 sm:py-20">
+        <div className="relative max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 sm:mb-3">
               <span className="text-gray-900 dark:text-white">A Better Way to </span>
               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Estimate Your Income
               </span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Designed for clarity, updated rates, and straightforward tax estimates.</p>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Designed for clarity, updated rates, and straightforward tax estimates.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {featureCards.map((card) => (
               <div
                 key={card.title}
@@ -572,21 +573,18 @@ export default function Calculator() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5f7ff] via-white to-[#f9f5ff] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-t border-b border-gray-100 dark:border-slate-800 py-14">
-        <div className="pointer-events-none absolute -left-32 top-0 w-72 h-72 bg-blue-300/25 blur-3xl" />
-        <div className="pointer-events-none absolute -right-40 bottom-0 w-80 h-80 bg-purple-300/25 blur-3xl" />
-
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-t border-b border-gray-100 dark:border-slate-800 py-10 sm:py-20">
+        <div className="relative max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             <span className="text-gray-900 dark:text-white">Maximize Your </span>
             <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Tax Relief.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Download our practical Irish tax saving guide and learn which credits and reliefs you may be entitled to under current Revenue rules.
           </p>
-          <button className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold text-sm shadow-md hover:shadow-lg transition">
+          <button className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition">
             Claim Your Free Irish Tax Guide →
           </button>
           <p className="text-xs text-gray-500 dark:text-gray-400">Instant access. No spam.</p>
@@ -595,21 +593,21 @@ export default function Calculator() {
 
       {/* Footer */}
       <footer>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
             {/* Column 1: Brand */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Free Irish Income Tax Calculator</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">helping individuals estimate Income Tax, USC, and PRSI using current Irish Revenue rates.</p>
+              <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2">Free Irish Income Tax Calculator</h3>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">helping individuals estimate Income Tax, USC, and PRSI using current Irish Revenue rates.</p>
             </div>
 
             {/* Column 2: Company */}
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Company</h4>
+              <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="/about" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
-                <li><a href="/contact" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
-                <li><a href="/policy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Privacy Policy</a></li>
+                <li><a href="/about" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
+                <li><a href="/contact" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+                <li><a href="/policy" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Privacy Policy</a></li>
                 <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Terms of Use</a></li>
                 <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Cookie Policy</a></li>
               </ul>
@@ -629,16 +627,16 @@ export default function Calculator() {
             <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Calculator</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">About Income Tax Calculator</a></li>
-                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Net Salary Calculator</a></li>
-                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Take Home Pay Calculator</a></li>
-                <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Budget 2026 Updates</a></li>
+                <li><a href="#" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">About Income Tax Calculator</a></li>
+                <li><a href="#" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Net Salary Calculator</a></li>
+                <li><a href="#" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Take Home Pay Calculator</a></li>
+                <li><a href="#" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Budget 2026 Updates</a></li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Section with Social Icons */}
-          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <p className="text-xs text-gray-600 dark:text-gray-400">
               © 2026 Income Tax Calculator). All rights reserved. Built and maintained by Discipline Media. Estimates only. Not financial or tax advice.
             </p>
