@@ -3,6 +3,7 @@ import userIcon from '../icons/div.w-14.png';
 import budgetIcon from '../icons/div.w-14-1.png';
 import payIcon from '../icons/div.w-14-2.png';
 import secureIcon from '../icons/div.w-14-3.png';
+import Taxberg from '../textberg/Taxberg';
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2 }).format(
@@ -517,67 +518,21 @@ export default function Calculator() {
               </div>
 
               <div className="border border-gray-800 rounded-xl bg-gradient-to-b from-gray-950 to-gray-900 p-6">
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold mb-1">The Taxberg</h3>
-                  <p className="text-sm text-green-500">Tax breakdown based on your inputs.</p>
+                <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">The Taxberg</h3>
+                    <p className="text-sm text-green-500">Interactive tax breakdown based on your inputs.</p>
+                  </div>
                 </div>
 
-                {/* Iceberg-style summary card */}
-                <div className="aspect-[3/4] bg-gradient-to-b from-sky-200 to-sky-800 rounded-lg relative overflow-hidden">
-                  {/* Background gradient tint */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-sky-100/70 via-sky-400/60 to-sky-900/70" />
-
-                  {/* Top label: Net pay */}
-                  <div className="absolute left-4 top-4 text-xs sm:text-sm text-sky-950/90 font-medium">
-                    <p className="mb-0.5">Net pay</p>
-                    <p className="text-sm sm:text-base font-semibold">
-                      {formatCurrency(calculations.netIncome)}
-                    </p>
-                  </div>
-
-                  {/* Stylised iceberg illustration */}
-                  <div className="absolute inset-x-0 top-10 flex justify-center pointer-events-none select-none">
-                    <div className="relative w-32 sm:w-40 h-40">
-                      {/* Above-water ice */}
-                      <div className="absolute left-1/2 -translate-x-1/2 bottom-10 w-24 h-20 bg-sky-50 rounded-t-3xl rounded-b-md shadow-[0_8px_0_rgba(15,23,42,0.45)]" />
-                      {/* Facets */}
-                      <div className="absolute left-1/2 -translate-x-1/2 bottom-12 w-16 h-14 bg-sky-100/95 rounded-3xl rotate-3" />
-                      <div className="absolute left-1/2 -translate-x-1/2 bottom-8 w-20 h-12 bg-sky-200/90 rounded-3xl -rotate-3" />
-                      {/* Water line */}
-                      <div className="absolute left-0 right-0 bottom-8 h-[2px] bg-gradient-to-r from-sky-400 via-sky-200 to-sky-400 opacity-80" />
-                      {/* Underwater section */}
-                      <div className="absolute left-1/2 -translate-x-1/2 bottom-2 w-32 h-16 bg-sky-600/85 rounded-t-[2.7rem] rounded-b-full blur-[1px]" />
-                      {/* Little flag on top */}
-                      <div className="absolute left-1/2 -translate-x-1/2 bottom-[5.4rem] flex flex-col items-center">
-                        <div className="w-0.5 h-4 bg-sky-400" />
-                        <div className="w-3 h-2 bg-gradient-to-r from-green-500 via-white to-orange-500 rounded-sm mt-0.5" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Mid-line labels: tax you pay / employer pays */}
-                  <div className="absolute inset-x-0 bottom-40 px-4 text-xs sm:text-lg text-white font-semibold flex justify-between items-center">
-                    <div className="text-center">
-                      <p className="mb-1">{formatCurrency(calculations.totalTax)}</p>
-                      <p className="text-xs sm:text-sm opacity-90">Tax you pay</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="mb-1">{formatCurrency(calculations.totalTax * 0.6)}</p>
-                      <p className="text-xs sm:text-sm opacity-90">Tax the employer pays</p>
-                    </div>
-                  </div>
-
-                  {/* Bottom overlay with figures (net + tax) */}
-                  <div className="absolute inset-x-0 bottom-0 px-4 py-3 bg-gradient-to-t from-sky-950/95 via-sky-900/70 to-transparent text-[0.7rem] sm:text-xs text-sky-50">
-                    <div className="flex justify-between mb-1 font-semibold">
-                      <span>Total tax</span>
-                      <span>{formatCurrency(calculations.totalTax)}</span>
-                    </div>
-                    <div className="flex justify-between text-sky-100/80">
-                      <span>Net pay (after tax)</span>
-                      <span>{formatCurrency(calculations.netIncome)}</span>
-                    </div>
-                  </div>
+                <div className="mb-6">
+                  <Taxberg
+                    netPay={calculations.netIncome}
+                    taxYouPay={calculations.incomeTax + calculations.usc + calculations.prsi}
+                    employerTax={calculations.totalTax * 0.25}
+                    totalTax={calculations.totalTax}
+                    grossSalary={calculations.grossIncome}
+                  />
                 </div>
 
                 {/* Total tax paid section */}

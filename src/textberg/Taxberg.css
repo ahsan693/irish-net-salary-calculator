@@ -1,0 +1,96 @@
+.taxberg-scene {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 680px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #b8e4f0 0%, #7ecfe8 28%, #1a5f8a 28.5%, #0d3d6b 55%, #071f3d 100%);
+  border-radius: 16px;
+  margin: 0 auto;
+}
+
+/* All layers fill the scene exactly */
+.taxberg-img,
+.taxberg-svg,
+.taxberg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.taxberg-img {
+  z-index: 3;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.taxberg-svg {
+  z-index: 4;
+  pointer-events: none;
+}
+
+.taxberg-canvas {
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Floating labels sit above canvas */
+.taxberg-label {
+  position: absolute;
+  z-index: 6;
+}
+
+.taxberg-label--net {
+  top: 28px;
+  left: 20px;
+}
+
+.taxberg-amount {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a3a4a;
+}
+
+.taxberg-desc {
+  display: block;
+  font-size: 11px;
+  color: #4a7a8a;
+  margin-top: 2px;
+}
+
+/* Bottom bar */
+.taxberg-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  background: rgba(4, 15, 35, 0.92);
+  padding: 14px 20px;
+  border-top: 1px solid rgba(122, 200, 230, 0.2);
+}
+
+.taxberg-footer__label {
+  font-size: 11px;
+  color: #5aaccc;
+  margin-bottom: 2px;
+  margin: 0;
+}
+
+.taxberg-footer__total {
+  font-size: 26px;
+  font-weight: 700;
+  color: #7ecfe8;
+  margin: 0;
+}
+
+.taxberg-footer__note {
+  font-size: 10px;
+  color: #4a7a8a;
+  margin-top: 6px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
