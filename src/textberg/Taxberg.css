@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 520px;
-  height: 820px;
+  height: 700px;
   overflow: hidden;
   background: linear-gradient(180deg, #b8e4f0 0%, #7ecfe8 28%, #1a5f8a 28.5%, #0d3d6b 55%, #071f3d 100%);
   border-radius: 16px;
@@ -81,9 +81,9 @@
   z-index: 7;
   background: transparent;
   backdrop-filter: none;
-  padding: 24px;
+  padding: 20px 24px;
   border-top: none;
-  min-height: 200px;
+  min-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;

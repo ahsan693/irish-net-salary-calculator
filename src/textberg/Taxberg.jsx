@@ -93,12 +93,6 @@ export default function Taxberg({ netPay, taxYouPay, employerTax, totalTax, gros
         )}
 
         {/* Dashed label lines — positioned at correct water depths on smaller iceberg */}
-        {/* "Net pay" label at top - visible ice tip */}
-        <circle cx={85} cy={110} r={4} fill="#f0c040" />
-        <line x1={89} y1={110} x2={150} y2={110} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
-        <text x={75} y={128} fontSize={14} fill="#000000" textAnchor="end" fontFamily="sans-serif" fontWeight="bold">Net pay</text>
-        <text x={75} y={145} fontSize={16} fill="#000000" textAnchor="end" fontFamily="sans-serif" fontWeight="900">€{Math.round(netPay)}</text>
-
         {/* "Tax you pay" line — upper underwater section */}
         <circle cx={100} cy={280} r={4} fill="#f0c040" />
         <line x1={104} y1={280} x2={160} y2={280} stroke="#f0c040" strokeWidth={2} strokeDasharray="4 3" />
